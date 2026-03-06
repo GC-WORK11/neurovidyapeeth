@@ -11,10 +11,6 @@ import {
   Award,
   Menu,
   X,
-  Linkedin,
-  Twitter,
-  Instagram,
-  Facebook,
   Bot,
 } from 'lucide-react'
 import { useState, type FormEvent, useEffect, useRef } from 'react'
