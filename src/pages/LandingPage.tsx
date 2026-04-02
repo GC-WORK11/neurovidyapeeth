@@ -1,6 +1,5 @@
 import {
   ArrowRight,
-  BookOpen,
   CheckCircle2,
   Clock3,
   GraduationCap,
@@ -27,14 +26,12 @@ import {
 } from "@/components/ui/select"
 import { cn } from '@/lib/utils'
 
-import aimlImg from '../assets/AIML.png'
-import promptImg from '../assets/PromptEngineering.png'
-import nvpLogo from '../assets/nvp-logo.png'
+import nvpLogo from '../assets/nvp-logo-circular.png'
 
 const stats = [
   { value: '8 Months', label: 'Course Duration', icon: Clock3 },
-  { value: '99+ Modules', label: 'Comprehensive Content', icon: BookOpen },
-  { value: '5 Projects', label: 'Hands-on Projects', icon: GraduationCap },
+  { value: '99+ Modules', label: 'Comprehensive Content', icon: GraduationCap },
+  { value: '5 Projects', label: 'Hands-on Projects', icon: Award },
   { value: 'Online Live', label: 'Mode of Learning', icon: Users2 },
 ]
 
@@ -158,7 +155,7 @@ function LoadingScreen() {
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-white transition-opacity duration-700 ease-out animate-out fade-out fill-mode-forwards">
       <div className="flex flex-col items-center gap-4">
-        <div className="h-16 w-16 animate-spin rounded-full border-4 border-indigo-100 border-t-indigo-600"></div>
+        <img src={nvpLogo} alt="NeuroVidyaPeeth" className="h-16 w-16 rounded-full object-cover" />
         <div className="text-xl font-display font-bold text-indigo-900 animate-pulse">NeuroVidyaPeeth</div>
       </div>
     </div>
@@ -186,10 +183,9 @@ export default function LandingPage() {
       background: formData.get('background'),
       goals: formData.get('goals'),
       course: formData.get('course'),
-      website: formData.get('website'), // Honeypot field
+      website: formData.get('website'),
     }
 
-    // Honeypot check
     if (data.website) {
       setIsSubmitting(false)
       setIsSubmitted(true)
@@ -262,23 +258,24 @@ export default function LandingPage() {
       <LoadingScreen />
       
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-white/10 bg-white/70 backdrop-blur-md transition-all duration-300">
+      <nav className="sticky top-0 z-50 border-b border-slate-100 bg-white/80 backdrop-blur-md transition-all duration-300">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
           <a href="/" className="flex items-center gap-3 cursor-pointer">
-            <img src={nvpLogo} alt="NeuroVidyaPeeth" className="h-10 w-auto object-contain" />
+            <img src={nvpLogo} alt="NeuroVidyaPeeth" className="h-12 w-12 rounded-full object-cover" />
+            <span className="text-lg font-display font-bold text-slate-900 hidden sm:block">NeuroVidyaPeeth</span>
           </a>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             <button onClick={() => scrollToSection('curriculum')} className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Curriculum</button>
             <button onClick={() => scrollToSection('highlights')} className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Highlights</button>
             <button onClick={() => scrollToSection('faq')} className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">FAQ</button>
             <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-600/20">
-                Take Test — ₹99
+              <Button className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-medium shadow-sm">
+                Eligibility Test — ₹99
               </Button>
             </a>
-            <Button onClick={() => scrollToSection('inquiry')} className="bg-slate-900 text-white hover:bg-slate-800 shadow-lg shadow-slate-900/20">
+            <Button onClick={() => scrollToSection('inquiry')} className="bg-slate-900 text-white hover:bg-slate-800 rounded-lg text-sm font-medium shadow-sm">
               Apply Now
             </Button>
           </div>
@@ -297,11 +294,11 @@ export default function LandingPage() {
               <button onClick={() => scrollToSection('highlights')} className="text-left text-sm font-medium text-slate-600 py-2">Highlights</button>
               <button onClick={() => scrollToSection('faq')} className="text-left text-sm font-medium text-slate-600 py-2">FAQ</button>
               <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>
-                <Button className="w-full justify-center bg-indigo-600 hover:bg-indigo-700 text-white">
-                  Take Test — ₹99
+                <Button className="w-full justify-center bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg">
+                  Eligibility Test — ₹99
                 </Button>
               </a>
-              <Button onClick={() => scrollToSection('inquiry')} className="w-full justify-center">
+              <Button onClick={() => scrollToSection('inquiry')} className="w-full justify-center bg-slate-900 hover:bg-slate-800 rounded-lg">
                 Apply Now
               </Button>
             </div>
@@ -310,7 +307,7 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-32 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-50/50 via-white to-white">
+      <section className="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-32 bg-gradient-to-b from-indigo-50/60 via-white to-white">
         <div className="mx-auto max-w-6xl px-6 lg:px-8 relative z-10">
           <FadeIn className="mx-auto max-w-3xl text-center">
             <Badge variant="secondary" className="mb-6 rounded-full px-4 py-1.5 text-sm font-medium text-indigo-600 ring-1 ring-inset ring-indigo-100 bg-white shadow-sm">
@@ -324,48 +321,42 @@ export default function LandingPage() {
             <p className="mt-6 text-lg leading-8 text-slate-600 max-w-2xl mx-auto font-sans">
               Master the future of technology with our comprehensive 8-month program. From Python basics to Advanced GenAI, build your career in Data Science and AI.
             </p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+            <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm text-slate-500 max-w-xl mx-auto">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 ring-1 ring-slate-100">
+                <Clock3 className="h-3.5 w-3.5 text-indigo-500" /> 8 Months
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 ring-1 ring-slate-100">
+                <GraduationCap className="h-3.5 w-3.5 text-indigo-500" /> 99+ Modules
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 ring-1 ring-slate-100">
+                <Award className="h-3.5 w-3.5 text-indigo-500" /> 5 Projects
+              </span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 ring-1 ring-slate-100">
+                <Users2 className="h-3.5 w-3.5 text-indigo-500" /> Online Live
+              </span>
+            </div>
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
               <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="h-16 px-10 text-lg font-bold w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 shadow-2xl shadow-indigo-600/40 hover:shadow-indigo-600/60 transition-all hover:scale-105 active:scale-95 ring-2 ring-indigo-400 ring-offset-2">
-                  Take Test — ₹99
+                <Button size="lg" className="h-14 px-8 text-base font-semibold w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow-md hover:shadow-lg transition-all">
+                  Eligibility Test — ₹99
                 </Button>
               </a>
               <Button
                 size="lg"
-                className="h-14 px-8 text-base bg-slate-900 hover:bg-slate-800 shadow-xl shadow-slate-900/20 w-full sm:w-auto transition-transform hover:scale-105 active:scale-95"
+                className="h-14 px-8 text-base w-full sm:w-auto border border-slate-300 text-slate-700 bg-white hover:bg-slate-50 rounded-lg shadow-sm transition-all"
                 onClick={() => scrollToSection('inquiry')}
               >
-                Inquire Now <ArrowRight className="ml-2 h-4 w-4" />
+                Request Details <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <button
                 onClick={() => scrollToSection('curriculum')}
-                className="text-sm font-semibold leading-6 text-slate-900 hover:text-indigo-600 transition-colors flex items-center gap-2 group px-6 py-4"
+                className="text-sm font-semibold leading-6 text-slate-900 hover:text-indigo-600 transition-colors flex items-center gap-2 group px-4 py-3"
               >
                 View Curriculum <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
               </button>
             </div>
-            
-            <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-6 max-w-5xl mx-auto opacity-90">
-               <div className="relative group overflow-hidden rounded-2xl shadow-2xl border border-white/20 transform sm:rotate-[-1deg] hover:rotate-0 transition-all duration-500 hover:z-10 hover:scale-105">
-                 <img src={aimlImg} alt="AI/ML Course Preview" className="w-full h-auto object-cover" />
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                   <p className="text-white font-medium text-sm">Comprehensive AI/ML Curriculum</p>
-                 </div>
-               </div>
-               <div className="relative group overflow-hidden rounded-2xl shadow-2xl border border-white/20 transform sm:rotate-[1deg] hover:rotate-0 transition-all duration-500 hover:z-10 hover:scale-105 mt-0 sm:mt-8">
-                 <img src={promptImg} alt="Prompt Engineering Preview" className="w-full h-auto object-cover" />
-                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                   <p className="text-white font-medium text-sm">Advanced Prompt Engineering</p>
-                 </div>
-               </div>
-            </div>
           </FadeIn>
         </div>
-        
-        {/* Background decorative blobs */}
-        <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-        <div className="absolute top-0 -right-4 w-72 h-72 bg-indigo-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
       </section>
 
       {/* Stats Section */}
@@ -420,18 +411,18 @@ export default function LandingPage() {
       </section>
 
       {/* Highlights & Projects */}
-      <section id="highlights" className="bg-[#1a1a1a] py-24 text-white relative border-y border-neutral-800">
+      <section id="highlights" className="bg-white py-24 relative">
         <div className="mx-auto max-w-6xl px-6 relative z-10">
           <div className="grid gap-16 lg:grid-cols-2 items-start">
             <FadeIn>
-              <h2 className="text-4xl font-bold tracking-tighter mb-12 font-display text-white uppercase border-l-4 border-indigo-500 pl-6">Why Choose This Program?</h2>
-              <div className="space-y-0 border-t border-neutral-800">
+              <h2 className="text-3xl font-bold tracking-tight mb-10 font-display text-slate-900">Why Choose This Program?</h2>
+              <div className="space-y-0 divide-y divide-slate-100 border-t border-slate-100">
                 {highlights.map((highlight, index) => (
-                  <div key={index} className="flex items-center gap-6 p-6 border-b border-neutral-800 hover:bg-neutral-800/50 transition-colors duration-200 group cursor-default">
-                    <div className="flex-shrink-0 w-12 h-12 bg-neutral-900 border border-neutral-700 flex items-center justify-center group-hover:bg-white group-hover:text-neutral-900 transition-colors duration-200 rounded-none">
-                      <CheckCircle2 className="h-6 w-6 text-white group-hover:text-neutral-900" />
+                  <div key={index} className="flex items-center gap-5 p-5 hover:bg-slate-50 transition-colors duration-200 group cursor-default">
+                    <div className="flex-shrink-0 w-10 h-10 bg-indigo-50 flex items-center justify-center rounded-xl group-hover:bg-indigo-100 transition-colors duration-200">
+                      <CheckCircle2 className="h-5 w-5 text-indigo-600" />
                     </div>
-                    <span className="text-lg text-neutral-300 font-medium group-hover:text-white transition-colors font-mono">{highlight}</span>
+                    <span className="text-base text-slate-700 font-medium group-hover:text-slate-900 transition-colors">{highlight}</span>
                   </div>
                 ))}
               </div>
@@ -439,17 +430,14 @@ export default function LandingPage() {
             
             <FadeIn delay={200}>
               <div className="relative mt-4">
-                {/* Hard shadow effect */}
-                <div className="absolute top-4 left-4 w-full h-full border-2 border-neutral-800 bg-transparent z-0 hidden md:block"></div>
-                
-                <div className="relative bg-[#1a1a1a] border-2 border-neutral-700 p-8 z-10 hover:-translate-y-1 hover:-translate-x-1 transition-transform duration-200">
-                  <h3 className="text-2xl font-bold mb-8 flex items-center gap-4 font-display border-b-2 border-neutral-800 pb-6 uppercase tracking-tight">
-                    <div className="p-3 bg-neutral-800 border border-neutral-700 rounded-none">
-                      <Award className="h-6 w-6 text-white" />
+                <div className="relative bg-white border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow duration-200">
+                  <h3 className="text-xl font-bold mb-8 flex items-center gap-3 font-display text-slate-900 border-b border-slate-100 pb-5">
+                    <div className="p-2.5 bg-indigo-50 rounded-xl">
+                      <Award className="h-5 w-5 text-indigo-600" />
                     </div>
                     Key Outcomes
                   </h3>
-                  <div className="space-y-4 text-neutral-300">
+                  <div className="space-y-4 text-slate-600">
                     {[
                       "Master Python for Data Science",
                       "Work with LLMs, RAG & Vector Databases",
@@ -459,8 +447,8 @@ export default function LandingPage() {
                       "Use LangChain, LangGraph & HuggingFace APIs"
                     ].map((outcome, i) => (
                       <div key={i} className="flex items-start gap-4 p-2 group/item">
-                        <div className="mt-2 h-2 w-2 bg-indigo-500 group-hover/item:bg-white transition-colors rounded-none"></div>
-                        <p className="text-neutral-400 group-hover/item:text-white transition-colors font-mono text-sm leading-relaxed uppercase tracking-wide">{outcome}</p>
+                        <div className="mt-2 h-2 w-2 bg-indigo-400 group-hover/item:bg-indigo-600 transition-colors rounded-full flex-shrink-0"></div>
+                        <p className="text-slate-500 group-hover/item:text-slate-700 transition-colors text-sm leading-relaxed">{outcome}</p>
                       </div>
                     ))}
                   </div>
@@ -538,7 +526,6 @@ export default function LandingPage() {
                     <Input id="goals" name="goals" required placeholder="What do you want to achieve?" className="bg-slate-50 border-slate-200 focus:bg-white transition-colors" />
                   </div>
 
-                  {/* Honeypot field - hidden from real users */}
                   <div className="hidden">
                     <label htmlFor="website">Website</label>
                     <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
@@ -568,11 +555,9 @@ export default function LandingPage() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid md:grid-cols-4 gap-8 lg:gap-12 mb-16">
             <div className="col-span-2">
-              <div className="flex items-center gap-2 mb-6">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-white">
-                  <BookOpen className="h-5 w-5" />
-                </div>
-                <div className="text-xl font-bold tracking-tight text-slate-900 font-display">NeuroVidyaPeeth</div>
+              <div className="flex items-center gap-3 mb-6">
+                <img src={nvpLogo} alt="NeuroVidyaPeeth" className="h-10 w-10 rounded-full object-cover" />
+                <span className="text-xl font-bold tracking-tight text-slate-900 font-display">NeuroVidyaPeeth</span>
               </div>
               <p className="text-slate-500 mb-6 max-w-sm leading-relaxed">
                 Empowering the next generation of AI engineers with industry-relevant skills and hands-on project experience.
