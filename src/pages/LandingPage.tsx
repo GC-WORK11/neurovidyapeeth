@@ -325,19 +325,24 @@ export default function LandingPage() {
               Master the future of technology with our comprehensive 8-month program. From Python basics to Advanced GenAI, build your career in Data Science and AI.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="h-14 px-8 text-base bg-indigo-600 hover:bg-indigo-700 shadow-xl shadow-indigo-600/20 w-full sm:w-auto transition-transform hover:scale-105 active:scale-95"
                 onClick={() => scrollToSection('inquiry')}
               >
                 Enroll Now <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <button 
+              <button
                 onClick={() => scrollToSection('curriculum')}
                 className="text-sm font-semibold leading-6 text-slate-900 hover:text-indigo-600 transition-colors flex items-center gap-2 group px-6 py-4"
               >
                 View Curriculum <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
               </button>
+              <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" variant="outline" className="h-14 px-6 text-base w-full sm:w-auto">
+                  Take Test — ₹99
+                </Button>
+              </a>
             </div>
             
             <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-6 max-w-5xl mx-auto opacity-90">
