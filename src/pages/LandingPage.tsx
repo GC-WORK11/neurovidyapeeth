@@ -1,4 +1,5 @@
 import {
+  ArrowRight,
   CheckCircle2,
   Clock3,
   GraduationCap,
@@ -257,24 +258,24 @@ export default function LandingPage() {
       <LoadingScreen />
       
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-slate-100 bg-white/80 backdrop-blur-md transition-all duration-300">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
+      <nav className="sticky top-0 z-50 border-b border-slate-100 bg-white/90 backdrop-blur-md">
+        <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-6 lg:px-8">
           <a href="/" className="flex items-center gap-3 cursor-pointer">
-            <img src={nvpLogo} alt="NeuroVidyaPeeth" className="h-12 w-12 rounded-full object-cover" />
+            <img src={nvpLogo} alt="NeuroVidyaPeeth" className="h-11 w-11 rounded-full object-cover" />
             <span className="text-lg font-display font-bold text-slate-900 hidden sm:block">NeuroVidyaPeeth</span>
           </a>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-8">
             <button onClick={() => scrollToSection('curriculum')} className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Curriculum</button>
             <button onClick={() => scrollToSection('highlights')} className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Highlights</button>
             <button onClick={() => scrollToSection('faq')} className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">FAQ</button>
             <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer">
-              <Button className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-sm font-medium shadow-sm">
+              <Button className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium">
                 Eligibility Test — ₹99
               </Button>
             </a>
-            <Button onClick={() => scrollToSection('inquiry')} className="bg-slate-900 text-white hover:bg-slate-800 rounded-lg text-sm font-medium shadow-sm">
+            <Button onClick={() => scrollToSection('inquiry')} className="bg-slate-900 text-white hover:bg-slate-800 text-sm font-medium">
               Apply Now
             </Button>
           </div>
@@ -287,17 +288,17 @@ export default function LandingPage() {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="absolute top-20 left-0 w-full bg-white border-b border-slate-100 p-6 md:hidden shadow-xl animate-in slide-in-from-top-5">
+          <div className="absolute top-full left-0 w-full bg-white border-b border-slate-100 p-6 md:hidden shadow-lg">
             <div className="flex flex-col space-y-4">
               <button onClick={() => scrollToSection('curriculum')} className="text-left text-sm font-medium text-slate-600 py-2">Curriculum</button>
               <button onClick={() => scrollToSection('highlights')} className="text-left text-sm font-medium text-slate-600 py-2">Highlights</button>
               <button onClick={() => scrollToSection('faq')} className="text-left text-sm font-medium text-slate-600 py-2">FAQ</button>
               <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>
-                <Button className="w-full justify-center bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg">
+                <Button className="w-full justify-center bg-indigo-600 hover:bg-indigo-700 text-white">
                   Eligibility Test — ₹99
                 </Button>
               </a>
-              <Button onClick={() => scrollToSection('inquiry')} className="w-full justify-center bg-slate-900 hover:bg-slate-800 rounded-lg">
+              <Button onClick={() => scrollToSection('inquiry')} className="w-full justify-center bg-slate-900 hover:bg-slate-800">
                 Apply Now
               </Button>
             </div>
@@ -306,42 +307,57 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-40 bg-white">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
-          <FadeIn className="mx-auto max-w-4xl text-center">
-            <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm text-slate-600">
-              <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
+      <section className="relative overflow-hidden bg-gradient-to-b from-indigo-50/40 via-white to-white pt-16 pb-20 lg:pt-24 lg:pb-32">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8 relative z-10">
+          <FadeIn className="mx-auto max-w-3xl text-center">
+            <Badge variant="secondary" className="mb-6 rounded-full px-4 py-1.5 text-sm font-medium text-indigo-600 ring-1 ring-inset ring-indigo-100 bg-white shadow-sm">
+              <span className="mr-2 inline-block h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
               New Batch: 2nd Week of April 2026
-            </div>
-            <h1 className="text-5xl font-extrabold tracking-tight text-slate-950 sm:text-7xl lg:text-8xl font-display leading-[0.95]">
-              Complete AI &<br />Machine Learning<br className="hidden sm:block" />
-              <span className="text-slate-400"> Program</span>
+            </Badge>
+            <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-6xl lg:text-7xl mb-8 font-display leading-[1.1]">
+              Complete AI &<br className="hidden sm:block" />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600">Machine Learning</span> Program
             </h1>
-            <p className="mt-8 text-lg leading-8 text-slate-500 max-w-xl mx-auto">
-              An 8-month live program taking you from Python fundamentals to advanced GenAI. Built for careers, not certificates.
+            <p className="mt-6 text-lg leading-8 text-slate-600 max-w-2xl mx-auto">
+              Master the future of technology with our comprehensive 8-month program. From Python basics to Advanced GenAI, build your career in Data Science and AI.
             </p>
-            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
               <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="h-13 px-8 text-sm font-semibold w-full sm:w-auto bg-slate-950 hover:bg-slate-800 text-white rounded-full transition-all">
-                  Take the Eligibility Test
+                <Button size="lg" className="h-14 px-8 text-base font-semibold w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-600/20">
+                  Eligibility Test — ₹99
                 </Button>
               </a>
               <Button
                 size="lg"
-                className="h-13 px-8 text-sm w-full sm:w-auto text-slate-600 bg-white hover:bg-slate-50 rounded-full border border-slate-200 transition-all"
+                className="h-14 px-8 text-base w-full sm:w-auto bg-slate-900 hover:bg-slate-800 text-white shadow-lg shadow-slate-900/10"
                 onClick={() => scrollToSection('inquiry')}
               >
-                Request Details
+                Request Details <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
+              <button
+                onClick={() => scrollToSection('curriculum')}
+                className="text-sm font-semibold leading-6 text-slate-900 hover:text-indigo-600 transition-colors flex items-center gap-2 group px-4 py-3"
+              >
+                View Curriculum <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
+              </button>
             </div>
-            <div className="mt-16 flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-slate-400">
-              <span>8 Months</span>
-              <span className="text-slate-200">·</span>
-              <span>99+ Modules</span>
-              <span className="text-slate-200">·</span>
-              <span>5 Projects</span>
-              <span className="text-slate-200">·</span>
-              <span>Online Live</span>
+            <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-slate-900 font-display">8 Months</div>
+                <div className="text-sm text-slate-500 mt-1">Course Duration</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-slate-900 font-display">99+ Modules</div>
+                <div className="text-sm text-slate-500 mt-1">Comprehensive Content</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-slate-900 font-display">5 Projects</div>
+                <div className="text-sm text-slate-500 mt-1">Hands-on Projects</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-slate-900 font-display">Online Live</div>
+                <div className="text-sm text-slate-500 mt-1">Mode of Learning</div>
+              </div>
             </div>
           </FadeIn>
         </div>
