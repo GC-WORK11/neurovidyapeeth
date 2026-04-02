@@ -1,5 +1,4 @@
 import {
-  ArrowRight,
   CheckCircle2,
   Clock3,
   GraduationCap,
@@ -307,53 +306,42 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-32 bg-gradient-to-b from-indigo-50/60 via-white to-white">
-        <div className="mx-auto max-w-6xl px-6 lg:px-8 relative z-10">
-          <FadeIn className="mx-auto max-w-3xl text-center">
-            <Badge variant="secondary" className="mb-6 rounded-full px-4 py-1.5 text-sm font-medium text-indigo-600 ring-1 ring-inset ring-indigo-100 bg-white shadow-sm">
-              <span className="mr-2 inline-block h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+      <section className="relative pt-20 pb-24 lg:pt-32 lg:pb-40 bg-white">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+          <FadeIn className="mx-auto max-w-4xl text-center">
+            <div className="mb-8 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-200 text-sm text-slate-600">
+              <span className="h-2 w-2 rounded-full bg-emerald-500"></span>
               New Batch: 2nd Week of April 2026
-            </Badge>
-            <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-7xl mb-8 font-display leading-[1.1]">
-              Complete AI & <br className="hidden sm:block" />
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600">Machine Learning</span> Program
-            </h1>
-            <p className="mt-6 text-lg leading-8 text-slate-600 max-w-2xl mx-auto font-sans">
-              Master the future of technology with our comprehensive 8-month program. From Python basics to Advanced GenAI, build your career in Data Science and AI.
-            </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3 text-sm text-slate-500 max-w-xl mx-auto">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 ring-1 ring-slate-100">
-                <Clock3 className="h-3.5 w-3.5 text-indigo-500" /> 8 Months
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 ring-1 ring-slate-100">
-                <GraduationCap className="h-3.5 w-3.5 text-indigo-500" /> 99+ Modules
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 ring-1 ring-slate-100">
-                <Award className="h-3.5 w-3.5 text-indigo-500" /> 5 Projects
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-50 ring-1 ring-slate-100">
-                <Users2 className="h-3.5 w-3.5 text-indigo-500" /> Online Live
-              </span>
             </div>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
+            <h1 className="text-5xl font-extrabold tracking-tight text-slate-950 sm:text-7xl lg:text-8xl font-display leading-[0.95]">
+              Complete AI &<br />Machine Learning<br className="hidden sm:block" />
+              <span className="text-slate-400"> Program</span>
+            </h1>
+            <p className="mt-8 text-lg leading-8 text-slate-500 max-w-xl mx-auto">
+              An 8-month live program taking you from Python fundamentals to advanced GenAI. Built for careers, not certificates.
+            </p>
+            <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
               <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="h-14 px-8 text-base font-semibold w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg shadow-md hover:shadow-lg transition-all">
-                  Eligibility Test — ₹99
+                <Button size="lg" className="h-13 px-8 text-sm font-semibold w-full sm:w-auto bg-slate-950 hover:bg-slate-800 text-white rounded-full transition-all">
+                  Take the Eligibility Test
                 </Button>
               </a>
               <Button
                 size="lg"
-                className="h-14 px-8 text-base w-full sm:w-auto border border-slate-300 text-slate-700 bg-white hover:bg-slate-50 rounded-lg shadow-sm transition-all"
+                className="h-13 px-8 text-sm w-full sm:w-auto text-slate-600 bg-white hover:bg-slate-50 rounded-full border border-slate-200 transition-all"
                 onClick={() => scrollToSection('inquiry')}
               >
-                Request Details <ArrowRight className="ml-2 h-4 w-4" />
+                Request Details
               </Button>
-              <button
-                onClick={() => scrollToSection('curriculum')}
-                className="text-sm font-semibold leading-6 text-slate-900 hover:text-indigo-600 transition-colors flex items-center gap-2 group px-4 py-3"
-              >
-                View Curriculum <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
-              </button>
+            </div>
+            <div className="mt-16 flex flex-wrap justify-center gap-x-8 gap-y-4 text-sm text-slate-400">
+              <span>8 Months</span>
+              <span className="text-slate-200">·</span>
+              <span>99+ Modules</span>
+              <span className="text-slate-200">·</span>
+              <span>5 Projects</span>
+              <span className="text-slate-200">·</span>
+              <span>Online Live</span>
             </div>
           </FadeIn>
         </div>
