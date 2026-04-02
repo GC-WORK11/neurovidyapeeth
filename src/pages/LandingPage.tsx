@@ -325,12 +325,17 @@ export default function LandingPage() {
               Master the future of technology with our comprehensive 8-month program. From Python basics to Advanced GenAI, build your career in Data Science and AI.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+              <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="h-16 px-10 text-lg font-bold w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 shadow-2xl shadow-indigo-600/40 hover:shadow-indigo-600/60 transition-all hover:scale-105 active:scale-95 ring-2 ring-indigo-400 ring-offset-2">
+                  Take Test — ₹99
+                </Button>
+              </a>
               <Button
                 size="lg"
-                className="h-14 px-8 text-base bg-indigo-600 hover:bg-indigo-700 shadow-xl shadow-indigo-600/20 w-full sm:w-auto transition-transform hover:scale-105 active:scale-95"
+                className="h-14 px-8 text-base bg-slate-900 hover:bg-slate-800 shadow-xl shadow-slate-900/20 w-full sm:w-auto transition-transform hover:scale-105 active:scale-95"
                 onClick={() => scrollToSection('inquiry')}
               >
-                Enroll Now <ArrowRight className="ml-2 h-4 w-4" />
+                Inquire Now <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <button
                 onClick={() => scrollToSection('curriculum')}
@@ -338,11 +343,6 @@ export default function LandingPage() {
               >
                 View Curriculum <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
               </button>
-              <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="h-14 px-6 text-base w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 shadow-xl shadow-indigo-600/30 hover:shadow-indigo-600/50 transition-all hover:scale-105 active:scale-95">
-                  Take Test — ₹99
-                </Button>
-              </a>
             </div>
             
             <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-6 max-w-5xl mx-auto opacity-90">
