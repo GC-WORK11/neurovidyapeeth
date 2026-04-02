@@ -339,7 +339,7 @@ export default function LandingPage() {
                 View Curriculum <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
               </button>
               <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="h-14 px-6 text-base w-full sm:w-auto">
+                <Button size="lg" className="h-14 px-6 text-base w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-700 hover:to-violet-700 shadow-xl shadow-indigo-600/30 hover:shadow-indigo-600/50 transition-all hover:scale-105 active:scale-95">
                   Take Test — ₹99
                 </Button>
               </a>
