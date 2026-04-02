@@ -11,7 +11,6 @@ import {
   Award,
   Menu,
   X,
-  Bot,
 } from 'lucide-react'
 import { useState, type FormEvent, useEffect, useRef } from 'react'
 
@@ -28,8 +27,9 @@ import {
 } from "@/components/ui/select"
 import { cn } from '@/lib/utils'
 
-import aimlImg from '../../Public/AIML.png'
-import promptImg from '../../Public/PromptEngineering.png'
+import aimlImg from '../assets/AIML.png'
+import promptImg from '../assets/PromptEngineering.png'
+import nvpLogo from '../assets/nvp-logo.png'
 
 const stats = [
   { value: '8 Months', label: 'Course Duration', icon: Clock3 },
@@ -170,13 +170,7 @@ export default function LandingPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [showLogoText, setShowLogoText] = useState(false)
   const [course, setCourse] = useState("")
-
-  useEffect(() => {
-    const timer = setTimeout(() => setShowLogoText(true), 2200);
-    return () => clearTimeout(timer);
-  }, []);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -270,20 +264,20 @@ export default function LandingPage() {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 border-b border-white/10 bg-white/70 backdrop-blur-md transition-all duration-300">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 text-white shadow-lg shadow-slate-900/20 group hover:scale-105 transition-transform duration-300 z-10 relative">
-              <Bot className="h-6 w-6" />
-            </div>
-            <div className={`overflow-hidden transition-all duration-1000 ease-out ${showLogoText ? 'max-w-[200px] opacity-100' : 'max-w-0 opacity-0'}`}>
-                <span className="text-xl font-bold tracking-tight text-slate-900 font-display whitespace-nowrap pl-1">NeuroVidyaPeeth</span>
-            </div>
-          </div>
+          <a href="/" className="flex items-center gap-3 cursor-pointer">
+            <img src={nvpLogo} alt="NeuroVidyaPeeth" className="h-10 w-auto object-contain" />
+          </a>
           
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             <button onClick={() => scrollToSection('curriculum')} className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Curriculum</button>
             <button onClick={() => scrollToSection('highlights')} className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">Highlights</button>
             <button onClick={() => scrollToSection('faq')} className="text-sm font-medium text-slate-600 hover:text-indigo-600 transition-colors">FAQ</button>
+            <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer">
+              <Button className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg shadow-indigo-600/20">
+                Take Test — ₹99
+              </Button>
+            </a>
             <Button onClick={() => scrollToSection('inquiry')} className="bg-slate-900 text-white hover:bg-slate-800 shadow-lg shadow-slate-900/20">
               Apply Now
             </Button>
@@ -302,6 +296,11 @@ export default function LandingPage() {
               <button onClick={() => scrollToSection('curriculum')} className="text-left text-sm font-medium text-slate-600 py-2">Curriculum</button>
               <button onClick={() => scrollToSection('highlights')} className="text-left text-sm font-medium text-slate-600 py-2">Highlights</button>
               <button onClick={() => scrollToSection('faq')} className="text-left text-sm font-medium text-slate-600 py-2">FAQ</button>
+              <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>
+                <Button className="w-full justify-center bg-indigo-600 hover:bg-indigo-700 text-white">
+                  Take Test — ₹99
+                </Button>
+              </a>
               <Button onClick={() => scrollToSection('inquiry')} className="w-full justify-center">
                 Apply Now
               </Button>
