@@ -28,6 +28,37 @@ import { cn } from '@/lib/utils'
 
 import nvpLogo from '../assets/nvp-logo-circular.png'
 
+function TypewriterText({ text, delay = 0, speed = 30 }: { text: string; delay?: number; speed?: number }) {
+  const [displayedText, setDisplayedText] = useState('')
+  const [isTyping, setIsTyping] = useState(false)
+  
+  useEffect(() => {
+    const startDelay = setTimeout(() => {
+      setIsTyping(true)
+      let index = 0
+      const interval = setInterval(() => {
+        if (index < text.length) {
+          setDisplayedText(text.slice(0, index + 1))
+          index++
+        } else {
+          clearInterval(interval)
+        }
+      }, speed)
+      return () => clearInterval(interval)
+    }, delay)
+    return () => clearTimeout(startDelay)
+  }, [text, delay, speed])
+  
+  return (
+    <span>
+      {displayedText}
+      {isTyping && displayedText.length < text.length && (
+        <span className="inline-block w-0.5 h-4 sm:h-5 bg-orange-500 ml-1 animate-pulse" />
+      )}
+    </span>
+  )
+}
+
 const stats = [
   { value: '8 Months', label: 'Course Duration', icon: Clock3 },
   { value: '99+ Modules', label: 'Comprehensive Content', icon: GraduationCap },
@@ -168,6 +199,12 @@ export default function LandingPage() {
   const [error, setError] = useState<string | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [course, setCourse] = useState("")
+  const [isBrandVisible, setIsBrandVisible] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsBrandVisible(true), 500)
+    return () => clearTimeout(timer)
+  }, [])
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -263,6 +300,9 @@ export default function LandingPage() {
           <a href="/" className="flex items-center gap-3 cursor-pointer">
             <img src={nvpLogo} alt="NeuroVidyaPeeth" className="h-9 w-9 sm:h-11 sm:w-11 rounded-full object-cover" />
             <span className="text-lg font-display font-bold text-navy-900 hidden sm:block">NeuroVidyaPeeth</span>
+            <span className={`text-lg font-display font-bold text-navy-900 sm:hidden transition-opacity duration-500 ${isBrandVisible ? 'opacity-100' : 'opacity-0'}`}>
+              NeuroVidyaPeeth
+            </span>
           </a>
           
           {/* Desktop Menu */}
@@ -319,7 +359,11 @@ export default function LandingPage() {
               <span className="text-orange-gradient">Machine Learning</span> Program
             </h1>
             <p className="mt-6 text-base sm:text-lg leading-8 text-muted-foreground max-w-2xl mx-auto">
-              Master the future of technology with our comprehensive 8-month program. From Python basics to Advanced GenAI, build your career in Data Science and AI.
+              <TypewriterText 
+                text="Master the future of technology with our comprehensive 8-month program. From Python basics to Advanced GenAI, build your career in Data Science and AI." 
+                delay={300}
+                speed={25}
+              />
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
               <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
