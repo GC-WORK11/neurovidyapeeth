@@ -4,26 +4,45 @@
 
 @layer base {
   :root {
-    --background: 40 20% 98%;
-    --foreground: 222 20% 14%;
+    --background: 0 0% 100%;
+    --foreground: 225 25% 11%;
     --card: 0 0% 100%;
-    --card-foreground: 222 20% 14%;
+    --card-foreground: 225 25% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222 20% 14%;
-    --primary: 222 47% 11%;
+    --popover-foreground: 225 25% 11%;
+    --primary: 24 100% 50%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 210 20% 95%;
-    --secondary-foreground: 222 20% 14%;
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 10% 40%;
-    --accent: 210 20% 95%;
-    --accent-foreground: 222 20% 14%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 225 25% 11%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 225 25% 11%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 214 16% 88%;
-    --input: 214 16% 88%;
-    --ring: 222 47% 18%;
-    --radius: 0.65rem;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 24 100% 50%;
+    --radius: 0.75rem;
+    
+    --orange-50: 24 100% 97%;
+    --orange-100: 24 100% 95%;
+    --orange-200: 24 100% 90%;
+    --orange-300: 24 100% 80%;
+    --orange-400: 24 100% 65%;
+    --orange-500: 24 100% 50%;
+    --orange-600: 20 100% 45%;
+    --orange-700: 20 100% 38%;
+    
+    --navy-50: 225 30% 97%;
+    --navy-100: 225 25% 95%;
+    --navy-200: 225 25% 88%;
+    --navy-800: 225 30% 15%;
+    --navy-900: 225 35% 10%;
+    --navy-950: 225 40% 6%;
+    
+    --success: 160 84% 39%;
+    --blue-accent: 217 91% 60%;
   }
 }
 
@@ -48,4 +67,74 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight;
   }
+}
+
+.shadow-orange-sm {
+  box-shadow: 0 2px 8px rgba(255, 107, 0, 0.15);
+}
+
+.shadow-orange {
+  box-shadow: 0 4px 16px rgba(255, 107, 0, 0.2);
+}
+
+.shadow-orange-lg {
+  box-shadow: 0 8px 30px rgba(255, 107, 0, 0.25);
+}
+
+.gradient-orange {
+  background: linear-gradient(135deg, #FF6B00 0%, #FF8C00 100%);
+}
+
+.gradient-orange-hover {
+  background: linear-gradient(135deg, #E55A00 0%, #FF6B00 100%);
+}
+
+.bg-warm {
+  background: linear-gradient(180deg, #FFF7ED 0%, #FFFFFF 50%, #F0FDF4 100%);
+}
+
+.border-l-orange {
+  border-left: 4px solid;
+  border-image: linear-gradient(180deg, #FF6B00 0%, #FF8C00 100%) 1;
+}
+
+.text-orange-gradient {
+  background: linear-gradient(135deg, #FF6B00 0%, #FF8C00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-divider {
+  background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 0, 0.03) 50%, transparent 100%);
 }
