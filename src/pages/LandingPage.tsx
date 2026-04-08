@@ -50,7 +50,7 @@ function TypewriterText({ text, delay = 0, speed = 30 }: { text: string; delay?:
     <span>
       {displayedText}
       {isTyping && displayedText.length < text.length && (
-        <span className="inline-block w-0.5 h-4 sm:h-5 bg-purple-500 ml-1 animate-pulse" />
+        <span className="inline-block w-0.5 h-4 sm:h-5 bg-violet-600 ml-1 animate-pulse" />
       )}
     </span>
   )
@@ -261,8 +261,8 @@ export default function LandingPage() {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center bg-white p-6 text-center animate-in fade-in duration-700">
         <div className="mx-auto max-w-md rounded-2xl bg-white p-8 shadow-lg ring-1 ring-slate-200">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-purple-100">
-            <CheckCircle2 className="h-8 w-8 text-purple-500" />
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-violet-100">
+            <CheckCircle2 className="h-8 w-8 text-violet-600" />
           </div>
           <h2 className="mt-6 text-2xl font-bold tracking-tight text-slate-900 font-display">Thank you!</h2>
           <p className="mt-2 text-slate-600">
@@ -281,10 +281,9 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-purple-100 selection:text-slate-900">
+    <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-violet-100 selection:text-slate-900">
       <LoadingScreen />
       
-      {/* Navigation */}
       <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-md shadow-sm">
         <div className="mx-auto flex h-16 sm:h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <a href="/" className="flex items-center gap-3 cursor-pointer">
@@ -295,11 +294,10 @@ export default function LandingPage() {
             </span>
           </a>
           
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <button onClick={() => scrollToSection('curriculum')} className="text-sm font-medium text-slate-600 hover:text-purple-500 transition-colors">Curriculum</button>
-            <button onClick={() => scrollToSection('highlights')} className="text-sm font-medium text-slate-600 hover:text-purple-500 transition-colors">Highlights</button>
-            <button onClick={() => scrollToSection('faq')} className="text-sm font-medium text-slate-600 hover:text-purple-500 transition-colors">FAQ</button>
+            <button onClick={() => scrollToSection('curriculum')} className="text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">Curriculum</button>
+            <button onClick={() => scrollToSection('highlights')} className="text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">Highlights</button>
+            <button onClick={() => scrollToSection('faq')} className="text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">FAQ</button>
             <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer">
               <Button variant="purple" size="lg" className="text-sm font-semibold">
                 Eligibility Test — ₹99
@@ -310,13 +308,11 @@ export default function LandingPage() {
             </Button>
           </div>
 
-          {/* Mobile Menu Toggle */}
           <button className="md:hidden p-2 text-slate-600" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="absolute top-full left-0 w-full bg-white border-b border-slate-200 p-6 md:hidden shadow-lg">
             <div className="flex flex-col space-y-4">
@@ -336,7 +332,6 @@ export default function LandingPage() {
         )}
       </nav>
 
-      {/* Hero Section */}
       <section className="relative overflow-hidden bg-white pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-28">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn className="mx-auto max-w-3xl text-center">
@@ -346,7 +341,7 @@ export default function LandingPage() {
             </Badge>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 font-display leading-[1.1]">
               Complete AI &<br className="hidden sm:block" />
-              <span className="text-purple-gradient">Machine Learning</span> Program
+              <span className="text-violet-600">Machine Learning</span> Program
             </h1>
             <p className="mt-6 text-lg sm:text-xl leading-8 text-slate-600 max-w-2xl mx-auto">
               <TypewriterText 
@@ -357,21 +352,21 @@ export default function LandingPage() {
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
               <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                <Button variant="purple" size="xl" className="h-14 px-8 text-base font-semibold w-full sm:w-auto shadow-purple-lg">
+                <Button variant="purple" size="xl" className="h-14 px-8 text-base font-semibold w-full sm:w-auto">
                   Eligibility Test — ₹99
                 </Button>
               </a>
               <Button
                 variant="navy"
                 size="xl"
-                className="h-14 px-8 text-base w-full sm:w-auto shadow-md"
+                className="h-14 px-8 text-base w-full sm:w-auto"
                 onClick={() => scrollToSection('inquiry')}
               >
                 Request Details <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
               <button
                 onClick={() => scrollToSection('curriculum')}
-                className="text-sm font-semibold leading-6 text-slate-900 hover:text-purple-500 transition-colors flex items-center gap-2 group px-4 py-3"
+                className="text-sm font-semibold leading-6 text-slate-900 hover:text-violet-600 transition-colors flex items-center gap-2 group px-4 py-3"
               >
                 View Curriculum <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
               </button>
@@ -380,7 +375,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Curriculum Section */}
       <section id="curriculum" className="py-16 sm:py-24 bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <FadeIn className="mb-12 sm:mb-16 text-center max-w-2xl mx-auto">
@@ -392,7 +386,7 @@ export default function LandingPage() {
           <div className="grid gap-5 sm:gap-6 md:grid-cols-2">
             {curriculum.map((item, index) => (
               <FadeIn key={index} delay={index * 50}>
-                <Card className="h-full border border-slate-200 shadow-sm group hover:shadow-md hover:border-l-4 hover:border-l-purple-500 transition-all duration-300">
+                <Card className="h-full border border-slate-200 shadow-sm group hover:shadow-md hover:border-l-4 hover:border-l-violet-600 transition-all duration-300">
                   <CardHeader>
                     <div className="mb-3 flex items-center justify-between">
                       <Badge variant="purple" className="font-semibold text-xs sm:text-sm">
@@ -412,7 +406,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Highlights & Projects */}
       <section id="highlights" className="bg-slate-50 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-2 items-start">
@@ -421,10 +414,10 @@ export default function LandingPage() {
               <div className="space-y-0 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                 {highlights.map((highlight, index) => (
                   <div key={index} className="flex items-center gap-5 p-5 hover:bg-slate-50 transition-colors duration-200 group cursor-default border-b border-slate-100 last:border-b-0">
-                    <div className="flex-shrink-0 w-10 h-10 bg-purple-100 flex items-center justify-center rounded-full group-hover:bg-purple-200 transition-colors duration-200">
-                      <CheckCircle2 className="h-5 w-5 text-purple-500" />
+                    <div className="flex-shrink-0 w-10 h-10 bg-violet-100 flex items-center justify-center rounded-full group-hover:bg-violet-200 transition-colors duration-200">
+                      <CheckCircle2 className="h-5 w-5 text-violet-600" />
                     </div>
-                    <span className="text-base text-slate-900 font-medium group-hover:text-purple-600 transition-colors">{highlight}</span>
+                    <span className="text-base text-slate-900 font-medium group-hover:text-violet-600 transition-colors">{highlight}</span>
                   </div>
                 ))}
               </div>
@@ -433,11 +426,11 @@ export default function LandingPage() {
             <FadeIn delay={200}>
               <div className="relative mt-4">
                 <div className="relative bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
-                  <div className="h-1.5 bg-gradient-to-r from-purple-500 to-purple-600"></div>
+                  <div className="h-1.5 bg-violet-600"></div>
                   <div className="p-8">
                     <h3 className="text-xl font-bold mb-8 flex items-center gap-3 font-display text-slate-900 border-b border-slate-100 pb-5">
-                      <div className="p-2.5 bg-purple-100 rounded-xl">
-                        <Award className="h-5 w-5 text-purple-500" />
+                      <div className="p-2.5 bg-violet-100 rounded-xl">
+                        <Award className="h-5 w-5 text-violet-600" />
                       </div>
                       Key Outcomes
                     </h3>
@@ -451,7 +444,7 @@ export default function LandingPage() {
                         "Use LangChain, LangGraph & HuggingFace APIs"
                       ].map((outcome, i) => (
                         <div key={i} className="flex items-start gap-4 p-2 group/item">
-                          <div className="mt-2 h-2 w-2 bg-purple-400 group-hover/item:bg-purple-500 transition-colors rounded-full flex-shrink-0"></div>
+                          <div className="mt-2 h-2 w-2 bg-violet-400 group-hover/item:bg-violet-500 transition-colors rounded-full flex-shrink-0"></div>
                           <p className="text-slate-600 group-hover/item:text-slate-900 transition-colors text-sm leading-relaxed">{outcome}</p>
                         </div>
                       ))}
@@ -464,7 +457,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Inquiry Form */}
       <section id="inquiry" className="py-16 lg:py-24 bg-white">
         <div className="mx-auto max-w-xl px-4 sm:px-6">
           <FadeIn className="text-center mb-12">
@@ -476,7 +468,7 @@ export default function LandingPage() {
           
           <FadeIn delay={100}>
             <Card className="shadow-lg border border-slate-200 overflow-hidden">
-              <div className="h-1.5 bg-gradient-to-r from-purple-500 to-purple-600"></div>
+              <div className="h-1.5 bg-violet-600"></div>
               <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-5">
                   {error && (
@@ -536,7 +528,7 @@ export default function LandingPage() {
                     <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
                   </div>
 
-                  <Button type="submit" variant="purple" size="lg" className="w-full h-12 text-base font-semibold shadow-purple-lg" disabled={isSubmitting}>
+                  <Button type="submit" variant="purple" size="lg" className="w-full h-12 text-base font-semibold" disabled={isSubmitting}>
                     {isSubmitting ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -555,7 +547,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer & Terms */}
       <footer id="faq" className="bg-slate-900 pt-12 pb-8 sm:pt-16 sm:pb-12">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-12 sm:mb-16">
@@ -572,9 +563,9 @@ export default function LandingPage() {
             <div>
               <h3 className="font-semibold text-white mb-6 font-display">Quick Links</h3>
               <ul className="space-y-3 text-sm text-slate-400">
-                <li><button onClick={() => scrollToSection('curriculum')} className="hover:text-purple-400 transition-colors">Curriculum</button></li>
-                <li><button onClick={() => scrollToSection('highlights')} className="hover:text-purple-400 transition-colors">Highlights</button></li>
-                <li><button onClick={() => scrollToSection('inquiry')} className="hover:text-purple-400 transition-colors">Apply Now</button></li>
+                <li><button onClick={() => scrollToSection('curriculum')} className="hover:text-violet-400 transition-colors">Curriculum</button></li>
+                <li><button onClick={() => scrollToSection('highlights')} className="hover:text-violet-400 transition-colors">Highlights</button></li>
+                <li><button onClick={() => scrollToSection('inquiry')} className="hover:text-violet-400 transition-colors">Apply Now</button></li>
               </ul>
             </div>
 
@@ -582,7 +573,7 @@ export default function LandingPage() {
               <h3 className="font-semibold text-white mb-6 font-display">Contact</h3>
               <ul className="space-y-3 text-sm text-slate-400">
                 <li className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4 text-purple-400" /> Delhi, India (Online)
+                  <MapPin className="h-4 w-4 text-violet-400" /> Delhi, India (Online)
                 </li>
                 <li className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-green-500"></span> Admissions Open
@@ -597,8 +588,8 @@ export default function LandingPage() {
                 &copy; {new Date().getFullYear()} NeuroVidyaPeeth. All rights reserved.
               </div>
               <div className="flex gap-6 text-sm text-slate-400 sm:justify-end">
-                <a href="#" className="hover:text-purple-400 transition-colors">Privacy Policy</a>
-                <a href="#" className="hover:text-purple-400 transition-colors">Terms of Service</a>
+                <a href="#" className="hover:text-violet-400 transition-colors">Privacy Policy</a>
+                <a href="#" className="hover:text-violet-400 transition-colors">Terms of Service</a>
               </div>
             </div>
             
