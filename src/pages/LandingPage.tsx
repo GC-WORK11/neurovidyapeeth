@@ -59,13 +59,6 @@ function TypewriterText({ text, delay = 0, speed = 30 }: { text: string; delay?:
   )
 }
 
-const stats = [
-  { value: '8 Months', label: 'Course Duration', icon: Clock3 },
-  { value: '99+ Modules', label: 'Comprehensive Content', icon: GraduationCap },
-  { value: '5 Projects', label: 'Hands-on Projects', icon: Award },
-  { value: 'Online Live', label: 'Mode of Learning', icon: Users2 },
-]
-
 const curriculum = [
   {
     phase: 'Phase 1',
@@ -187,7 +180,7 @@ function LoadingScreen() {
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-white transition-opacity duration-700 ease-out animate-out fade-out fill-mode-forwards">
       <div className="flex flex-col items-center gap-4">
         <img src={nvpLogo} alt="NeuroVidyaPeeth" className="h-16 w-16 rounded-full object-cover" />
-        <div className="text-xl font-display font-bold text-navy-900 animate-pulse">NeuroVidyaPeeth</div>
+        <div className="text-xl font-display font-bold text-slate-900 animate-pulse">NeuroVidyaPeeth</div>
       </div>
     </div>
   );
@@ -270,12 +263,12 @@ export default function LandingPage() {
   if (isSubmitted) {
     return (
       <div className="flex min-h-screen flex-col items-center justify-center bg-white p-6 text-center animate-in fade-in duration-700">
-        <div className="mx-auto max-w-md rounded-2xl bg-white p-8 shadow-xl ring-1 ring-border">
+        <div className="mx-auto max-w-md rounded-2xl bg-white p-8 shadow-lg ring-1 ring-slate-200">
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-orange-100">
             <CheckCircle2 className="h-8 w-8 text-orange-500" />
           </div>
-          <h2 className="mt-6 text-2xl font-bold tracking-tight text-navy-900 font-display">Thank you!</h2>
-          <p className="mt-2 text-muted-foreground">
+          <h2 className="mt-6 text-2xl font-bold tracking-tight text-slate-900 font-display">Thank you!</h2>
+          <p className="mt-2 text-slate-600">
             Your inquiry has been received. We will get back to you shortly with more details about the program.
           </p>
           <Button 
@@ -291,25 +284,25 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white font-sans text-navy-900 selection:bg-orange-100 selection:text-navy-900">
+    <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-orange-100 selection:text-slate-900">
       <LoadingScreen />
       
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 border-b border-border bg-white/95 backdrop-blur-md shadow-nav">
+      <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-md shadow-sm">
         <div className="mx-auto flex h-16 sm:h-[72px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <a href="/" className="flex items-center gap-3 cursor-pointer">
             <img src={nvpLogo} alt="NeuroVidyaPeeth" className="h-9 w-9 sm:h-11 sm:w-11 rounded-full object-cover" />
-            <span className="text-lg font-display font-bold text-navy-900 hidden sm:block">NeuroVidyaPeeth</span>
-            <span className={`text-lg font-display font-bold text-navy-900 sm:hidden transition-opacity duration-500 ${isBrandVisible ? 'opacity-100' : 'opacity-0'}`}>
+            <span className="text-lg font-display font-bold text-slate-900 hidden sm:block">NeuroVidyaPeeth</span>
+            <span className={`text-lg font-display font-bold text-slate-900 sm:hidden transition-opacity duration-500 ${isBrandVisible ? 'opacity-100' : 'opacity-0'}`}>
               NeuroVidyaPeeth
             </span>
           </a>
           
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <button onClick={() => scrollToSection('curriculum')} className="text-sm font-medium text-muted-foreground hover:text-orange-500 transition-colors">Curriculum</button>
-            <button onClick={() => scrollToSection('highlights')} className="text-sm font-medium text-muted-foreground hover:text-orange-500 transition-colors">Highlights</button>
-            <button onClick={() => scrollToSection('faq')} className="text-sm font-medium text-muted-foreground hover:text-orange-500 transition-colors">FAQ</button>
+            <button onClick={() => scrollToSection('curriculum')} className="text-sm font-medium text-slate-600 hover:text-orange-500 transition-colors">Curriculum</button>
+            <button onClick={() => scrollToSection('highlights')} className="text-sm font-medium text-slate-600 hover:text-orange-500 transition-colors">Highlights</button>
+            <button onClick={() => scrollToSection('faq')} className="text-sm font-medium text-slate-600 hover:text-orange-500 transition-colors">FAQ</button>
             <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer">
               <Button variant="orange" size="lg" className="text-sm font-semibold">
                 Eligibility Test — ₹99
@@ -321,18 +314,18 @@ export default function LandingPage() {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button className="md:hidden p-2 text-muted-foreground" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button className="md:hidden p-2 text-slate-600" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="absolute top-full left-0 w-full bg-white border-b border-border p-6 md:hidden shadow-lg">
+          <div className="absolute top-full left-0 w-full bg-white border-b border-slate-200 p-6 md:hidden shadow-lg">
             <div className="flex flex-col space-y-4">
-              <button onClick={() => scrollToSection('curriculum')} className="text-left text-sm font-medium text-muted-foreground py-2">Curriculum</button>
-              <button onClick={() => scrollToSection('highlights')} className="text-left text-sm font-medium text-muted-foreground py-2">Highlights</button>
-              <button onClick={() => scrollToSection('faq')} className="text-left text-sm font-medium text-muted-foreground py-2">FAQ</button>
+              <button onClick={() => scrollToSection('curriculum')} className="text-left text-sm font-medium text-slate-600 py-2">Curriculum</button>
+              <button onClick={() => scrollToSection('highlights')} className="text-left text-sm font-medium text-slate-600 py-2">Highlights</button>
+              <button onClick={() => scrollToSection('faq')} className="text-left text-sm font-medium text-slate-600 py-2">FAQ</button>
               <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>
                 <Button variant="orange" className="w-full justify-center">
                   Eligibility Test — ₹99
@@ -347,18 +340,18 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-warm pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-24 lg:pb-32">
+      <section className="relative overflow-hidden bg-white pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-28">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn className="mx-auto max-w-3xl text-center">
             <Badge variant="orange" className="mb-6 rounded-full px-4 py-1.5 text-sm font-medium">
               <span className="mr-2 inline-block h-2 w-2 rounded-full bg-white animate-pulse"></span>
               Upcoming Batch Starting on 7May'26
             </Badge>
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-navy-900 mb-8 font-display leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 font-display leading-[1.1]">
               Complete AI &<br className="hidden sm:block" />
               <span className="text-orange-gradient">Machine Learning</span> Program
             </h1>
-            <p className="mt-6 text-base sm:text-lg leading-8 text-muted-foreground max-w-2xl mx-auto">
+            <p className="mt-6 text-lg sm:text-xl leading-8 text-slate-600 max-w-2xl mx-auto">
               <TypewriterText 
                 text="Master the future of technology with our comprehensive 8-month program. From Python basics to Advanced GenAI, build your career in Data Science and AI." 
                 delay={300}
@@ -381,44 +374,31 @@ export default function LandingPage() {
               </Button>
               <button
                 onClick={() => scrollToSection('curriculum')}
-                className="text-sm font-semibold leading-6 text-navy-900 hover:text-orange-500 transition-colors flex items-center gap-2 group px-4 py-3"
+                className="text-sm font-semibold leading-6 text-slate-900 hover:text-orange-500 transition-colors flex items-center gap-2 group px-4 py-3"
               >
                 View Curriculum <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
               </button>
-            </div>
-            <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-2xl mx-auto">
-              <div className="text-center">
-                <div className="text-xl sm:text-2xl font-bold text-navy-900 font-display">8 Months</div>
-                <div className="text-xs sm:text-sm text-muted-foreground mt-1">Course Duration</div>
-              </div>
-              <div className="text-center">
-                <div className="text-xl sm:text-2xl font-bold text-navy-900 font-display">99+ Modules</div>
-                <div className="text-xs sm:text-sm text-muted-foreground mt-1">Comprehensive Content</div>
-              </div>
-              <div className="text-center">
-                <div className="text-xl sm:text-2xl font-bold text-navy-900 font-display">5 Projects</div>
-                <div className="text-xs sm:text-sm text-muted-foreground mt-1">Hands-on Projects</div>
-              </div>
-              <div className="text-center">
-                <div className="text-xl sm:text-2xl font-bold text-navy-900 font-display">Online Live</div>
-                <div className="text-xs sm:text-sm text-muted-foreground mt-1">Mode of Learning</div>
-              </div>
             </div>
           </FadeIn>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="bg-secondary py-12">
+      <section className="bg-slate-50 py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-            {stats.map((stat, index) => (
-              <FadeIn key={stat.label} delay={index * 100} className="flex flex-col items-center text-center group hover:translate-y-[-2px] transition-transform duration-300">
-                <div className="mb-4 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-gradient-orange text-white shadow-orange-sm group-hover:shadow-orange group-hover:scale-110 transition-all duration-300">
-                  <stat.icon className="h-5 w-5 sm:h-6 sm:w-6" />
+            {[
+              { value: '8 Months', label: 'Course Duration', icon: Clock3 },
+              { value: '99+ Modules', label: 'Comprehensive Content', icon: GraduationCap },
+              { value: '5 Projects', label: 'Hands-on Projects', icon: Award },
+              { value: 'Online Live', label: 'Mode of Learning', icon: Users2 },
+            ].map((stat, index) => (
+              <FadeIn key={stat.label} delay={index * 100} className="flex flex-col items-center text-center group hover:-translate-y-1 transition-transform duration-300">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-orange-500 to-orange-600 text-white shadow-orange-sm group-hover:shadow-orange group-hover:scale-105 transition-all duration-300">
+                  <stat.icon className="h-6 w-6" />
                 </div>
-                <dt className="text-2xl sm:text-3xl font-bold text-navy-900 font-display">{stat.value}</dt>
-                <dd className="text-xs sm:text-sm font-medium text-muted-foreground mt-1">{stat.label}</dd>
+                <dt className="text-2xl sm:text-3xl font-bold text-slate-900 font-display">{stat.value}</dt>
+                <dd className="text-sm font-medium text-slate-500 mt-1">{stat.label}</dd>
               </FadeIn>
             ))}
           </div>
@@ -429,27 +409,26 @@ export default function LandingPage() {
       <section id="curriculum" className="py-16 sm:py-24 bg-white">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <FadeIn className="mb-12 sm:mb-16 text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold tracking-tight text-navy-900 sm:text-4xl font-display mb-4">Course Curriculum</h2>
-            <p className="text-base sm:text-lg text-muted-foreground">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-display mb-4">Course Curriculum</h2>
+            <p className="text-base sm:text-lg text-slate-600">
               A meticulously crafted journey from fundamentals to advanced AI systems, broken down into 99 comprehensive modules.
             </p>
           </FadeIn>
-          <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-2">
+          <div className="grid gap-5 sm:gap-6 md:grid-cols-2">
             {curriculum.map((item, index) => (
               <FadeIn key={index} delay={index * 50}>
-                <Card className="h-full border-border shadow-card group overflow-hidden relative">
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-orange opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <Card className="h-full border border-slate-200 shadow-sm group hover:shadow-md hover:border-l-4 hover:border-l-orange-500 transition-all duration-300">
                   <CardHeader>
                     <div className="mb-3 flex items-center justify-between">
-                      <Badge variant="orange" className="font-semibold">
+                      <Badge variant="orange" className="font-semibold text-xs sm:text-sm">
                         {item.phase}
                       </Badge>
-                      <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">{item.modules}</span>
+                      <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">{item.modules}</span>
                     </div>
-                    <CardTitle className="text-lg sm:text-xl font-bold text-navy-900 font-display">{item.title}</CardTitle>
+                    <CardTitle className="text-lg sm:text-xl font-bold text-slate-900 font-display">{item.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                    <p className="text-sm leading-relaxed text-slate-600">{item.description}</p>
                   </CardContent>
                 </Card>
               </FadeIn>
@@ -459,18 +438,18 @@ export default function LandingPage() {
       </section>
 
       {/* Highlights & Projects */}
-      <section id="highlights" className="bg-secondary py-24 relative">
-        <div className="mx-auto max-w-6xl px-6 relative z-10">
-          <div className="grid gap-16 lg:grid-cols-2 items-start">
+      <section id="highlights" className="bg-slate-50 py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="grid gap-12 lg:grid-cols-2 items-start">
             <FadeIn>
-              <h2 className="text-3xl font-bold tracking-tight mb-10 font-display text-navy-900">Why Choose This Program?</h2>
-              <div className="space-y-0 divide-y divide-border bg-white rounded-2xl shadow-card">
+              <h2 className="text-3xl font-bold tracking-tight mb-10 font-display text-slate-900">Why Choose This Program?</h2>
+              <div className="space-y-0 bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                 {highlights.map((highlight, index) => (
-                  <div key={index} className="flex items-center gap-5 p-5 hover:bg-orange-50/50 transition-colors duration-200 group cursor-default">
+                  <div key={index} className="flex items-center gap-5 p-5 hover:bg-slate-50 transition-colors duration-200 group cursor-default border-b border-slate-100 last:border-b-0">
                     <div className="flex-shrink-0 w-10 h-10 bg-orange-100 flex items-center justify-center rounded-full group-hover:bg-orange-200 transition-colors duration-200">
                       <CheckCircle2 className="h-5 w-5 text-orange-500" />
                     </div>
-                    <span className="text-base text-navy-900 font-medium group-hover:text-orange-600 transition-colors">{highlight}</span>
+                    <span className="text-base text-slate-900 font-medium group-hover:text-orange-600 transition-colors">{highlight}</span>
                   </div>
                 ))}
               </div>
@@ -478,16 +457,16 @@ export default function LandingPage() {
             
             <FadeIn delay={200}>
               <div className="relative mt-4">
-                <div className="relative bg-white border border-border rounded-2xl shadow-card-hover overflow-hidden">
-                  <div className="h-1.5 bg-gradient-orange"></div>
+                <div className="relative bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+                  <div className="h-1.5 bg-gradient-to-r from-orange-500 to-orange-600"></div>
                   <div className="p-8">
-                    <h3 className="text-xl font-bold mb-8 flex items-center gap-3 font-display text-navy-900 border-b border-border pb-5">
+                    <h3 className="text-xl font-bold mb-8 flex items-center gap-3 font-display text-slate-900 border-b border-slate-100 pb-5">
                       <div className="p-2.5 bg-orange-100 rounded-xl">
                         <Award className="h-5 w-5 text-orange-500" />
                       </div>
                       Key Outcomes
                     </h3>
-                    <div className="space-y-4 text-muted-foreground">
+                    <div className="space-y-4">
                       {[
                         "Master Python for Data Science",
                         "Work with LLMs, RAG & Vector Databases",
@@ -498,7 +477,7 @@ export default function LandingPage() {
                       ].map((outcome, i) => (
                         <div key={i} className="flex items-start gap-4 p-2 group/item">
                           <div className="mt-2 h-2 w-2 bg-orange-400 group-hover/item:bg-orange-500 transition-colors rounded-full flex-shrink-0"></div>
-                          <p className="text-muted-foreground group-hover/item:text-navy-900 transition-colors text-sm leading-relaxed">{outcome}</p>
+                          <p className="text-slate-600 group-hover/item:text-slate-900 transition-colors text-sm leading-relaxed">{outcome}</p>
                         </div>
                       ))}
                     </div>
@@ -511,18 +490,18 @@ export default function LandingPage() {
       </section>
 
       {/* Inquiry Form */}
-      <section id="inquiry" className="py-16 lg:py-24 bg-warm">
-        <div className="mx-auto max-w-xl px-6">
+      <section id="inquiry" className="py-16 lg:py-24 bg-white">
+        <div className="mx-auto max-w-xl px-4 sm:px-6">
           <FadeIn className="text-center mb-12">
-            <h2 className="text-3xl font-bold tracking-tight text-navy-900 font-display">Start Your Journey</h2>
-            <p className="mt-4 text-muted-foreground max-w-md mx-auto">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 font-display">Start Your Journey</h2>
+            <p className="mt-4 text-slate-600 max-w-md mx-auto">
               Fill out the form below to inquire about the course. We'll send you the detailed brochure and fee structure.
             </p>
           </FadeIn>
           
           <FadeIn delay={100}>
-            <Card className="shadow-xl border-0 ring-1 ring-border overflow-hidden">
-              <div className="h-2 bg-gradient-orange"></div>
+            <Card className="shadow-lg border border-slate-200 overflow-hidden">
+              <div className="h-1.5 bg-gradient-to-r from-orange-500 to-orange-600"></div>
               <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-5">
                   {error && (
@@ -533,35 +512,35 @@ export default function LandingPage() {
                   
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium text-navy-900">Full Name</label>
-                      <Input id="name" name="name" required placeholder="John Doe" className="bg-secondary/50 border-border" />
+                      <label htmlFor="name" className="text-sm font-medium text-slate-900">Full Name</label>
+                      <Input id="name" name="name" required placeholder="John Doe" className="bg-slate-50 border-slate-200" />
                     </div>
                     <div className="space-y-2">
-                      <label htmlFor="city" className="text-sm font-medium text-navy-900">City</label>
-                      <Input id="city" name="city" required placeholder="Delhi" className="bg-secondary/50 border-border" />
+                      <label htmlFor="city" className="text-sm font-medium text-slate-900">City</label>
+                      <Input id="city" name="city" required placeholder="Delhi" className="bg-slate-50 border-slate-200" />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium text-navy-900">Email Address</label>
-                    <Input id="email" name="email" type="email" required placeholder="john@example.com" className="bg-secondary/50 border-border" />
+                    <label htmlFor="email" className="text-sm font-medium text-slate-900">Email Address</label>
+                    <Input id="email" name="email" type="email" required placeholder="john@example.com" className="bg-slate-50 border-slate-200" />
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-medium text-navy-900">Phone Number</label>
-                    <Input id="phone" name="phone" type="tel" required placeholder="+91 98765 43210" className="bg-secondary/50 border-border" />
+                    <label htmlFor="phone" className="text-sm font-medium text-slate-900">Phone Number</label>
+                    <Input id="phone" name="phone" type="tel" required placeholder="+91 98765 43210" className="bg-slate-50 border-slate-200" />
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="background" className="text-sm font-medium text-navy-900">Educational Background</label>
-                    <Input id="background" name="background" required placeholder="e.g. B.Tech CS Student..." className="bg-secondary/50 border-border" />
+                    <label htmlFor="background" className="text-sm font-medium text-slate-900">Educational Background</label>
+                    <Input id="background" name="background" required placeholder="e.g. B.Tech CS Student..." className="bg-slate-50 border-slate-200" />
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="course" className="text-sm font-medium text-navy-900">Preferred Course</label>
+                    <label htmlFor="course" className="text-sm font-medium text-slate-900">Preferred Course</label>
                     <input type="hidden" name="course" value={course} />
                     <Select onValueChange={setCourse} required>
-                      <SelectTrigger className="bg-secondary/50 border-border">
+                      <SelectTrigger className="bg-slate-50 border-slate-200">
                         <SelectValue placeholder="Select a course" />
                       </SelectTrigger>
                       <SelectContent>
@@ -573,8 +552,8 @@ export default function LandingPage() {
                   </div>
 
                   <div className="space-y-2">
-                    <label htmlFor="goals" className="text-sm font-medium text-navy-900">Learning Goals</label>
-                    <Input id="goals" name="goals" required placeholder="What do you want to achieve?" className="bg-secondary/50 border-border" />
+                    <label htmlFor="goals" className="text-sm font-medium text-slate-900">Learning Goals</label>
+                    <Input id="goals" name="goals" required placeholder="What do you want to achieve?" className="bg-slate-50 border-slate-200" />
                   </div>
 
                   <div className="hidden">
@@ -602,7 +581,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer & Terms */}
-      <footer id="faq" className="bg-navy-950 pt-12 pb-8 sm:pt-16 sm:pb-12">
+      <footer id="faq" className="bg-slate-900 pt-12 pb-8 sm:pt-16 sm:pb-12">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-12 sm:mb-16">
             <div className="sm:col-span-2">
@@ -610,14 +589,14 @@ export default function LandingPage() {
                 <img src={nvpLogo} alt="NeuroVidyaPeeth" className="h-10 w-10 rounded-full object-cover" />
                 <span className="text-xl font-bold tracking-tight text-white font-display">NeuroVidyaPeeth</span>
               </div>
-              <p className="text-muted-foreground mb-6 max-w-sm leading-relaxed text-sm sm:text-base">
+              <p className="text-slate-400 mb-6 max-w-sm leading-relaxed text-sm sm:text-base">
                 Empowering the next generation of AI engineers with industry-relevant skills and hands-on project experience.
               </p>
             </div>
             
             <div>
               <h3 className="font-semibold text-white mb-6 font-display">Quick Links</h3>
-              <ul className="space-y-3 text-sm text-muted-foreground">
+              <ul className="space-y-3 text-sm text-slate-400">
                 <li><button onClick={() => scrollToSection('curriculum')} className="hover:text-orange-400 transition-colors">Curriculum</button></li>
                 <li><button onClick={() => scrollToSection('highlights')} className="hover:text-orange-400 transition-colors">Highlights</button></li>
                 <li><button onClick={() => scrollToSection('inquiry')} className="hover:text-orange-400 transition-colors">Apply Now</button></li>
@@ -626,30 +605,30 @@ export default function LandingPage() {
 
             <div>
               <h3 className="font-semibold text-white mb-6 font-display">Contact</h3>
-              <ul className="space-y-3 text-sm text-muted-foreground">
+              <ul className="space-y-3 text-sm text-slate-400">
                 <li className="flex items-center gap-2">
                   <MapPin className="h-4 w-4 text-orange-400" /> Delhi, India (Online)
                 </li>
                 <li className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-success"></span> Admissions Open
+                  <span className="w-2 h-2 rounded-full bg-green-500"></span> Admissions Open
                 </li>
               </ul>
             </div>
           </div>
           
-          <div className="pt-6 sm:pt-8 border-t border-navy-800">
+          <div className="pt-6 sm:pt-8 border-t border-slate-800">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
-              <div className="text-sm text-muted-foreground">
+              <div className="text-sm text-slate-400">
                 &copy; {new Date().getFullYear()} NeuroVidyaPeeth. All rights reserved.
               </div>
-              <div className="flex gap-6 text-sm text-muted-foreground sm:justify-end">
+              <div className="flex gap-6 text-sm text-slate-400 sm:justify-end">
                 <a href="#" className="hover:text-orange-400 transition-colors">Privacy Policy</a>
                 <a href="#" className="hover:text-orange-400 transition-colors">Terms of Service</a>
               </div>
             </div>
             
-            <div className="mt-6 sm:mt-8 text-xs text-muted-foreground/70 space-y-2 border-t border-navy-800 pt-6 sm:pt-8">
-               <p className="font-semibold text-muted-foreground mb-2">Terms & Conditions</p>
+            <div className="mt-6 sm:mt-8 text-xs text-slate-500 space-y-2 border-t border-slate-800 pt-6 sm:pt-8">
+               <p className="font-semibold text-slate-400 mb-2">Terms & Conditions</p>
                <ul className="space-y-1 list-disc pl-4">
                 {terms.map((term, i) => (
                   <li key={i}>{term}</li>
