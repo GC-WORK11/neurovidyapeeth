@@ -183,6 +183,13 @@ function LoadingScreen() {
   );
 }
 
+const heroStats = [
+  { value: '8', label: 'Months' },
+  { value: '99+', label: 'Modules' },
+  { value: '5', label: 'Projects' },
+  { value: 'Online', label: 'Live' },
+]
+
 export default function LandingPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -299,7 +306,7 @@ export default function LandingPage() {
             <button onClick={() => scrollToSection('highlights')} className="text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">Highlights</button>
             <button onClick={() => scrollToSection('faq')} className="text-sm font-medium text-slate-600 hover:text-violet-600 transition-colors">FAQ</button>
             <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer">
-              <Button variant="purple" size="lg" className="text-sm font-semibold">
+              <Button variant="purple" size="lg" className="text-sm font-semibold bg-violet-600 hover:bg-violet-700">
                 Eligibility Test — ₹99
               </Button>
             </a>
@@ -320,7 +327,7 @@ export default function LandingPage() {
               <button onClick={() => scrollToSection('highlights')} className="text-left text-sm font-medium text-slate-600 py-2">Highlights</button>
               <button onClick={() => scrollToSection('faq')} className="text-left text-sm font-medium text-slate-600 py-2">FAQ</button>
               <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)}>
-                <Button variant="purple" className="w-full justify-center">
+                <Button variant="purple" className="w-full justify-center bg-violet-600 hover:bg-violet-700">
                   Eligibility Test — ₹99
                 </Button>
               </a>
@@ -336,10 +343,12 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-gradient-radial from-violet-50/40 via-transparent to-transparent radial-gradient-[ellipse_at_top_right] opacity-60 pointer-events-none"></div>
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn className="mx-auto max-w-3xl text-center">
-            <Badge variant="purple" className="mb-6 rounded-full px-4 py-1.5 text-sm font-medium">
-              <span className="mr-2 inline-block h-2 w-2 rounded-full bg-white animate-pulse"></span>
-              Upcoming Batch Starting on 7May'26
-            </Badge>
+            <div className="mb-6">
+              <Badge className="bg-violet-600 text-white text-sm sm:text-base font-semibold px-5 py-2 rounded-full shadow-md">
+                <span className="mr-2 inline-block h-2 w-2 rounded-full bg-white animate-pulse"></span>
+                Upcoming Batch Starting on 7May'26
+              </Badge>
+            </div>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-slate-900 mb-6 font-display leading-[1.1]">
               Complete AI &<br className="hidden sm:block" />
               <span className="text-violet-600">Machine Learning</span> Program
@@ -353,7 +362,7 @@ export default function LandingPage() {
             </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5">
               <a href="https://rzp.io/rzp/neurovidyapeethtestportal" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                <Button variant="purple" size="xl" className="h-14 px-8 text-base font-semibold w-full sm:w-auto">
+                <Button variant="purple" size="xl" className="h-14 px-8 text-base font-semibold w-full sm:w-auto bg-violet-600 hover:bg-violet-700">
                   Eligibility Test — ₹99
                 </Button>
               </a>
@@ -365,18 +374,33 @@ export default function LandingPage() {
               >
                 Request Details <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <button
-                onClick={() => scrollToSection('curriculum')}
-                className="text-sm font-semibold leading-6 text-slate-900 hover:text-violet-600 transition-colors flex items-center gap-2 group px-4 py-3"
-              >
-                View Curriculum <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
-              </button>
+            </div>
+            <button
+              onClick={() => scrollToSection('curriculum')}
+              className="mt-5 text-sm font-semibold leading-6 text-slate-900 hover:text-violet-600 transition-colors flex items-center justify-center gap-2 group"
+            >
+              View Curriculum <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
+            </button>
+          </FadeIn>
+
+          <FadeIn delay={200}>
+            <div className="mt-12 sm:mt-16 mx-auto max-w-2xl">
+              <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 sm:p-8">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
+                  {heroStats.map((stat, index) => (
+                    <div key={index} className="text-center">
+                      <div className="text-2xl sm:text-3xl font-bold text-violet-600 font-display">{stat.value}</div>
+                      <div className="text-sm text-slate-500 mt-1">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </FadeIn>
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-violet-100 to-transparent"></div>
+      <div className="h-px bg-gradient-to-r from-transparent via-violet-200 to-transparent"></div>
 
       <section id="curriculum" className="py-16 sm:py-24 bg-gradient-to-b from-white to-violet-50/20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -392,7 +416,7 @@ export default function LandingPage() {
                 <Card className="h-full border border-slate-200 shadow-sm group hover:shadow-md hover:border-l-4 hover:border-l-violet-600 hover:bg-violet-50/20 transition-all duration-300">
                   <CardHeader>
                     <div className="mb-3 flex items-center justify-between">
-                      <Badge variant="purple" className="font-semibold text-xs sm:text-sm">
+                      <Badge className="bg-violet-600 text-white font-semibold text-xs sm:text-sm px-3 py-1">
                         {item.phase}
                       </Badge>
                       <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">{item.modules}</span>
@@ -409,7 +433,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-violet-100 to-transparent"></div>
+      <div className="h-px bg-gradient-to-r from-transparent via-violet-200 to-transparent"></div>
 
       <section id="highlights" className="py-16 sm:py-24 bg-gradient-to-b from-violet-50/20 to-slate-50">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -449,7 +473,7 @@ export default function LandingPage() {
                         "Use LangChain, LangGraph & HuggingFace APIs"
                       ].map((outcome, i) => (
                         <div key={i} className="flex items-start gap-4 p-2 group/item">
-                          <div className="mt-2 h-2 w-2 bg-violet-400 group-hover/item:bg-violet-500 transition-colors rounded-full flex-shrink-0"></div>
+                          <div className="mt-2 h-2 w-2 bg-violet-400 group-hover/item:bg-violet-600 transition-colors rounded-full flex-shrink-0"></div>
                           <p className="text-slate-600 group-hover/item:text-slate-900 transition-colors text-sm leading-relaxed">{outcome}</p>
                         </div>
                       ))}
@@ -462,7 +486,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <div className="h-px bg-gradient-to-r from-transparent via-violet-100 to-transparent"></div>
+      <div className="h-px bg-gradient-to-r from-transparent via-violet-200 to-transparent"></div>
 
       <section id="inquiry" className="py-16 lg:py-24 bg-gradient-to-b from-slate-50 to-white">
         <div className="mx-auto max-w-xl px-4 sm:px-6">
@@ -535,7 +559,7 @@ export default function LandingPage() {
                     <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
                   </div>
 
-                  <Button type="submit" variant="purple" size="lg" className="w-full h-12 text-base font-semibold" disabled={isSubmitting}>
+                  <Button type="submit" variant="purple" size="lg" className="w-full h-12 text-base font-semibold bg-violet-600 hover:bg-violet-700" disabled={isSubmitting}>
                     {isSubmitting ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
