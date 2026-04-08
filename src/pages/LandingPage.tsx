@@ -183,13 +183,6 @@ function LoadingScreen() {
   );
 }
 
-const heroStats = [
-  { value: '8', label: 'Months' },
-  { value: '99+', label: 'Modules' },
-  { value: '5', label: 'Projects' },
-  { value: 'Online', label: 'Live' },
-]
-
 export default function LandingPage() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
@@ -381,21 +374,6 @@ export default function LandingPage() {
             >
               View Curriculum <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">→</span>
             </button>
-          </FadeIn>
-
-          <FadeIn delay={200}>
-            <div className="mt-12 sm:mt-16 mx-auto max-w-2xl">
-              <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6 sm:p-8">
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
-                  {heroStats.map((stat, index) => (
-                    <div key={index} className="text-center">
-                      <div className="text-2xl sm:text-3xl font-bold text-violet-600 font-display">{stat.value}</div>
-                      <div className="text-sm text-slate-500 mt-1">{stat.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
           </FadeIn>
         </div>
       </section>
