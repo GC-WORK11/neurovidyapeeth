@@ -333,6 +333,7 @@ export default function LandingPage() {
       </nav>
 
       <section className="relative overflow-hidden bg-white pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-28">
+        <div className="absolute inset-0 bg-gradient-radial from-violet-50/40 via-transparent to-transparent radial-gradient-[ellipse_at_top_right] opacity-60 pointer-events-none"></div>
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 relative z-10">
           <FadeIn className="mx-auto max-w-3xl text-center">
             <Badge variant="purple" className="mb-6 rounded-full px-4 py-1.5 text-sm font-medium">
@@ -375,7 +376,9 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="curriculum" className="py-16 sm:py-24 bg-white">
+      <div className="h-px bg-gradient-to-r from-transparent via-violet-100 to-transparent"></div>
+
+      <section id="curriculum" className="py-16 sm:py-24 bg-gradient-to-b from-white to-violet-50/20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <FadeIn className="mb-12 sm:mb-16 text-center max-w-2xl mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 font-display mb-4">Course Curriculum</h2>
@@ -386,7 +389,7 @@ export default function LandingPage() {
           <div className="grid gap-5 sm:gap-6 md:grid-cols-2">
             {curriculum.map((item, index) => (
               <FadeIn key={index} delay={index * 50}>
-                <Card className="h-full border border-slate-200 shadow-sm group hover:shadow-md hover:border-l-4 hover:border-l-violet-600 transition-all duration-300">
+                <Card className="h-full border border-slate-200 shadow-sm group hover:shadow-md hover:border-l-4 hover:border-l-violet-600 hover:bg-violet-50/20 transition-all duration-300">
                   <CardHeader>
                     <div className="mb-3 flex items-center justify-between">
                       <Badge variant="purple" className="font-semibold text-xs sm:text-sm">
@@ -406,7 +409,9 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="highlights" className="bg-slate-50 py-16 sm:py-24">
+      <div className="h-px bg-gradient-to-r from-transparent via-violet-100 to-transparent"></div>
+
+      <section id="highlights" className="py-16 sm:py-24 bg-gradient-to-b from-violet-50/20 to-slate-50">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="grid gap-12 lg:grid-cols-2 items-start">
             <FadeIn>
@@ -425,7 +430,7 @@ export default function LandingPage() {
             
             <FadeIn delay={200}>
               <div className="relative mt-4">
-                <div className="relative bg-white border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
+                <div className="relative bg-gradient-to-br from-white to-violet-50/40 border border-slate-200 rounded-2xl shadow-sm overflow-hidden">
                   <div className="h-1.5 bg-violet-600"></div>
                   <div className="p-8">
                     <h3 className="text-xl font-bold mb-8 flex items-center gap-3 font-display text-slate-900 border-b border-slate-100 pb-5">
@@ -457,7 +462,9 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section id="inquiry" className="py-16 lg:py-24 bg-white">
+      <div className="h-px bg-gradient-to-r from-transparent via-violet-100 to-transparent"></div>
+
+      <section id="inquiry" className="py-16 lg:py-24 bg-gradient-to-b from-slate-50 to-white">
         <div className="mx-auto max-w-xl px-4 sm:px-6">
           <FadeIn className="text-center mb-12">
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 font-display">Start Your Journey</h2>
@@ -467,7 +474,7 @@ export default function LandingPage() {
           </FadeIn>
           
           <FadeIn delay={100}>
-            <Card className="shadow-lg border border-slate-200 overflow-hidden">
+            <Card className="shadow-lg border border-slate-200 overflow-hidden bg-gradient-to-br from-white to-violet-50/30">
               <div className="h-1.5 bg-violet-600"></div>
               <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-5">
