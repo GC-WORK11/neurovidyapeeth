@@ -18,8 +18,8 @@ const badgeVariants = cva(
           "border-transparent bg-success/10 text-success",
         warning:
           "border-transparent bg-yellow-500/10 text-yellow-600",
-        orange:
-          "border-transparent bg-gradient-orange text-white shadow-orange-sm",
+        purple:
+          "border-transparent bg-gradient-purple text-white shadow-purple-sm",
         navy:
           "border-transparent bg-navy-900 text-white",
       },
